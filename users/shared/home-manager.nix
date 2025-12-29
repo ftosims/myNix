@@ -6,6 +6,8 @@ let name = "Junlang";
 {
   zsh = {
     enable = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
     plugins = [
       {
         name = "powerlevel10k";
@@ -20,7 +22,13 @@ let name = "Junlang";
     ];
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" ];
+      plugins = [ 
+                  "autojump" 
+                  "emoji"
+                  "git"  
+                  "sudo" 
+
+                ];
       custom = "$HOME/.oh-my-zsh/custom/";
       # theme = "powerlevel10k/powerlevel10k";
     };
