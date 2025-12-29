@@ -25,6 +25,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.firewall.checkReversePath = "loose";
 
   # Set your time zone.
   time.timeZone = "Europe/Madrid";
@@ -123,8 +124,15 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    tailscale
     
   ];
+
+  services.tailscale = {
+    enable = true;
+    extraSetFlags = ["--netfilter-mode=nodivert"];
+    useRoutingFeatures = "server";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

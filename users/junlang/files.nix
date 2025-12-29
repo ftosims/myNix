@@ -9,8 +9,7 @@
     text = builtins.readFile ./config/niri/config.kdl;
   };
 
-  ".emacs.d" = {
-    source = ./config/emacs;
-  };
-
+  # ".emacs.d" = {
+  #   source = ./config/emacs;
+  # };
 }
