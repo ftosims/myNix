@@ -1,0 +1,3 @@
+[submodule "users/junlang/config/emacs"]
+	path = users/junlang/config/emacs
+	url = git@github.com:ftosims/dotemacs.org.git

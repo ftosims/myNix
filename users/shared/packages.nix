@@ -4,7 +4,9 @@ let
   myFonts = import ./fonts.nix { inherit pkgs; };
 in
 with pkgs; [
-  
+  # A
+  autojump
+
   # G
   git
 

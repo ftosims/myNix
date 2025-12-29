@@ -27,7 +27,6 @@ let name = "Junlang";
                   "emoji"
                   "git"  
                   "sudo" 
-
                 ];
       custom = "$HOME/.oh-my-zsh/custom/";
       # theme = "powerlevel10k/powerlevel10k";
