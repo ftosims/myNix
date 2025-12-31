@@ -131,9 +131,12 @@
 
   services.tailscale = {
     enable = true;
-    extraSetFlags = ["--netfilter-mode=nodivert"];
-    useRoutingFeatures = "server";
+    # extraSetFlags = ["--netfilter-mode=nodivert"];
+    useRoutingFeatures = "both";
+    interfaceName = "userspace-networking";
+    port = 41641;
   };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -146,11 +149,13 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 41641 # Tailscale
+                                         ];
+  networking.firewall.allowedUDPPorts = [ 41641 # Tailscale
+                                         ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
