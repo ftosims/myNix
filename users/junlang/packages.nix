@@ -14,6 +14,7 @@ shared-packages ++ [
 
   # F
   fuzzel
+
   # G
   gh
 

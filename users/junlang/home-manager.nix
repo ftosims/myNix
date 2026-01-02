@@ -84,14 +84,14 @@ in {
             ];
           };
         };
-        colorSchemes.predefinedScheme = "Monochrome";
+        colorSchemes.predefinedScheme = "Nord";
         general = {
-          avatarImage = "/home/drfoobar/.face";
+          avatarImage = "/home/junlang/.face";
           radiusRatio = 0.2;
         };
         location = {
           monthBeforeDay = true;
-          name = "Marseille, France";
+          name = "Madrid, Spain";
         };
       };
       # this may also be a string or a path to a JSON file,
@@ -148,3 +148,4 @@ in {
 
     
 }
+
