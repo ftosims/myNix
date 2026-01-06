@@ -37,12 +37,16 @@
     inputMethod = {
       type = "fcitx5";
       enable = true;
-      fcitx5.addons = with pkgs; [
-        fcitx5-gtk
-        fcitx5-nord
-        fcitx5-rime
-        rime-data
-      ];
+      fcitx5 = {
+        waylandFrontend = true;
+        addons = with pkgs; [
+          qt6Packages.fcitx5-chinese-addons
+          fcitx5-nord
+          fcitx5-rime
+          rime-data
+          rime-ice
+        ];
+      };
     };
 
     extraLocaleSettings = {
@@ -120,6 +124,12 @@
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "iHD";     # Prefer the modern iHD backend
     # VDPAU_DRIVER = "va_gl";      # Only if using libvdpau-va-gl
+
+    # For Fcitx5
+    NIX_IM_MODULE = "fcitx";
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE  = "fcitx";
+    XMODIFIERS = "@im=fcitx";
   };
 
   # # May help if FFmpeg/VAAPI/QSV init fails (esp. on Arc with i915):
