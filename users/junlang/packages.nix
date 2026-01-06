@@ -13,6 +13,7 @@ shared-packages ++ [
   cachix
 
   # F
+  fastfetch
   fuzzel
 
   # G
