@@ -25,14 +25,14 @@ in {
   };
 
   programs = shared-programs // {
+    tailscale = {
+      enable = true;
+      copyApplications = true;
+    };
     # home-manager.enable = true;
   };
 
-  programs.tailscale = {
-    enable = true;
-    copyApplications = true;
-  };
-  
+    
     
 }
 
