@@ -28,7 +28,7 @@ shared-packages ++ [
 
   # S
   # T
-  tailscale
+  # tailscale
 
   # V
   vscode
