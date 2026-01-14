@@ -8,8 +8,7 @@ name:
   system,
   user,
   darwin ? false,
-  wsl ? false,
-  useShare ? true
+  wsl ? false
 }:
 
 let
@@ -20,9 +19,10 @@ let
   isLinux = !darwin && !isWSL;
 
   # The config files for this system.
-  machineConfig = ../hosts/${name}/configuration.nix;
-  userOSConfig  = ../hosts/${name}/${user}.nix;
-  userHMConfig  = ../hosts/${name}/home-manager.nix;
+  machineConfig = ../machines/${name}/configuration.nix;
+  userOSConfig = ../users/${user}/${if darwin then "darwin" else "nixos" }.nix;
+  # userOSConfig = ../users/${user}/${if darwin then "darwin" else "nixos" }.nix;
+  userHMConfig = ../users/${user}/${if darwin then "darwinhm" else "home-manager" }.nix;
 
   # NixOS vs nix-darwin functionst
   systemFunc = if darwin then inputs.darwin.lib.darwinSystem else nixpkgs.lib.nixosSystem;

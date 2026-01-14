@@ -46,19 +46,22 @@
       })
     ];
 
-    mkSystem = import ./lib/mksystem.nix {
+    mkSystem1 = import ./lib/mksystem1.nix {
+      inherit overlays nixpkgs inputs;
+    };
+    mkSystem = import ./lib/mksystem1.nix {
       inherit overlays nixpkgs inputs;
     };
   in {
     
     # Configuration for my miniPC
     # NOTE: 'nixos' is the default hostname set by the installer
-    nixosConfigurations.nix19291 = mkSystem "nix19291" {
+    nixosConfigurations.nix19291 = mkSystem1 "nix19291" {
       # NOTE: Change this to aarch64-linux if you are on ARM
       system = "x86_64-linux";
       user   = "junlang";
     };
-    darwinConfigurations.workmac = mkSystem "workmac" {
+    darwinConfigurations.workmac = mkSystem1 "workmac" {
       system = "aarch64-darwin";
       user   = "junlangwang";
       darwin = true;
