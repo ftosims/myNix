@@ -58,5 +58,10 @@
       system = "x86_64-linux";
       user   = "junlang";
     };
+    darwinConfigurations.workmac = mkSystem "workmac" {
+      system = "aarch64-darwin";
+      user   = "junlangwang";
+      darwin = true;
+    };
   };
 }

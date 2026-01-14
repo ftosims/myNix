@@ -4,7 +4,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  user     = "junlang";
+  user     = "junlangwang";
   isDarwin = pkgs.stdenv.isDarwin;
   isLinux  = pkgs.stdenv.isLinux;
   shared-programs = import ../shared/home-manager.nix { inherit config pkgs lib; };
@@ -13,7 +13,6 @@ let
 in {
   imports = [
   ];
-  users.users.junlangwang.home = "/Users/junlangwang";
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home = {

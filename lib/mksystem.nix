@@ -22,7 +22,7 @@ let
   machineConfig = ../machines/${name}/configuration.nix;
   userOSConfig = ../users/${user}/${if darwin then "darwin" else "nixos" }.nix;
   # userOSConfig = ../users/${user}/${if darwin then "darwin" else "nixos" }.nix;
-  userHMConfig = ../users/${user}/${if darwin then "darwin-hm" else "home-manager" }.nix;
+  userHMConfig = ../users/${user}/${if darwin then "darwinhm" else "home-manager" }.nix;
 
   # NixOS vs nix-darwin functionst
   systemFunc = if darwin then inputs.darwin.lib.darwinSystem else nixpkgs.lib.nixosSystem;
