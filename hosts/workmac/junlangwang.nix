@@ -7,7 +7,7 @@
       "google-chrome"
       "istat-menus"
       "signal"
-      
+      "font-hack-nerd-font"
     ];
 
     brews = [

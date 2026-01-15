@@ -49,7 +49,7 @@
     mkSystem1 = import ./lib/mksystem1.nix {
       inherit overlays nixpkgs inputs;
     };
-    mkSystem = import ./lib/mksystem1.nix {
+    mkSystem = import ./lib/mksystem.nix {
       inherit overlays nixpkgs inputs;
     };
   in {
@@ -61,7 +61,8 @@
       system = "x86_64-linux";
       user   = "junlang";
     };
-    darwinConfigurations.workmac = mkSystem1 "workmac" {
+
+    darwinConfigurations.workmac = mkSystem "workmac" {
       system = "aarch64-darwin";
       user   = "junlangwang";
       darwin = true;

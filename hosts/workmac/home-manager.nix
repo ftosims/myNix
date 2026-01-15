@@ -1,0 +1,38 @@
+# https://github.com/mitchellh/nixos-config/blob/main/users/mitchellh/home-manager.nix
+{ isWSL, inputs, ... }:
+
+{ config, lib, pkgs, ... }:
+
+let
+  user     = "junlangwang";
+  isDarwin = pkgs.stdenv.isDarwin;
+  isLinux  = pkgs.stdenv.isLinux;
+  shared-programs = import ../shared/home-manager.nix { inherit config pkgs lib; };
+  # shared-files = import ./files.nix { inherit config pkgs; };
+
+in {
+  imports = [
+    # ./iterm2.nix
+  ];
+  # Home Manager needs a bit of information about you and the
+  # paths it should manage.
+  home = {
+    username = "junlangwang";
+    homeDirectory = "/Users/junlangwang";
+    packages = pkgs.callPackage ./packages.nix {inherit inputs config;};
+    file = import ./files.nix { inherit user config pkgs; };
+    stateVersion = "25.11";
+  };
+
+  programs = shared-programs // {
+    tailscale = {
+      enable = true;
+      copyApplications = true;
+    };
+    # home-manager.enable = true;
+  };
+
+    
+    
+}
+
