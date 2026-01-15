@@ -31,6 +31,9 @@
     # End Nix
     '';
 
+  services.tailscale = {
+    enable = true;
+  };
   environment.shells = with pkgs; [ bashInteractive zsh fish ];
   environment.systemPackages = with pkgs; [
     cachix

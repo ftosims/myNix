@@ -12,7 +12,7 @@ let
 
 in {
   imports = [
-    # ./iterm2.nix
+    ./iterm2.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -24,13 +24,9 @@ in {
     stateVersion = "25.11";
   };
 
-  programs = shared-programs // {
-    tailscale = {
-      enable = true;
-      copyApplications = true;
-    };
+  # programs = shared-programs // {
     # home-manager.enable = true;
-  };
+  # };
 
     
     
