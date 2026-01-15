@@ -8,6 +8,7 @@
       "istat-menus"
       "signal"
       "font-hack-nerd-font"
+      "squirrel-app"
     ];
 
     brews = [
